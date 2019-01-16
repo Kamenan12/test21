@@ -1,0 +1,19 @@
+affiché l'article
+
+<h2> <%= @gbangban.titre%> </h2>
+
+<h3> <%= @gbangban.contenu %> </h3>
+<!-- Affiché les commentaire -->
+<h4>< les commentaire </h4>
+<% @gbangban.commentaires.each do |com| %>
+  <%= com.content %> <br>
+<% end %>
+
+
+<!--ici ajoute les commentaire lié au post -->
+
+<%= form_for [@gbangban, Commentaire.new], :html => {class: "w-100"}, remote: true do |f| %>
+<%= f.hidden_field :gbangban_id, value: @gbangban.id %>
+<%= f.text_field :content, class: "form-control comment-input border-0",
+ placeholder: "ajouter un commentaire.....", autocomplete: :off %>
+<% end %>

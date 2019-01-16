@@ -1,0 +1,12 @@
+
+
+
+list dees article gbangabn
+
+<% @gbangbans.each do |gban| %>
+ <h3> <%= gban.titre %> </h3>
+ <p> <%= gban.contenu %></p>
+  <%= link_to 'Suivre', gban, class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Ouvrir un Debat', new_gbangban_path %>
+

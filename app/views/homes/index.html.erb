@@ -1,0 +1,15 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<% @themes.each do |t| %>
+  <h1> <%= t.titre %> </h1>
+  <h2> <%= t.sous_titre %> </h2>
+<% end %>
+<hr>
+
+<% @gbangbans.each do |gb| %>
+  <%= gb.titre %>
+  <%= gb.commentaires.conten %>
+<% end %>
+
+

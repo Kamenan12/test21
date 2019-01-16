@@ -1,0 +1,17 @@
+list des theme
+<!-- Formutlaire pour creer un theme -->
+<%= form_for @theme do |f| %>
+<%= f.label :titre %>
+<%= f.text_field :titre %>
+<%= f.label :sous_titre %>
+<%= f.text_field :sous_titre %>
+<%= f.submit :ajouter %>
+<% end %>
+
+<!-- formulaire pour lister les theme-->
+
+.<% @themes.each do |theme| %>
+  <%= theme.titre %>
+  <%= theme.sous_titre %>
+ <h3> ajouter depuis: <%= time_ago_in_words(theme.created_at) %></h3>
+<% end %>

@@ -1,0 +1,65 @@
+<h1> ajouter un nouveau debat </h1>
+<div class='row'>
+
+<div class='col-xs-12'>
+
+<%= form_for @gbangban, url: gbangbans_path, html: { multipart: true } do |f| %>
+
+<div class='col-xs-12'>
+
+<div class="form-group">
+   <div class="control-label col-sm-2">
+     <%= f.label :Sujet %>
+   </div>
+
+    <div class="col-sm-8">
+          <%= f.text_field :titre, class: "form-control", placeholder: "Sujet", autofocus: true %>
+    </div>
+
+</div>
+
+<div class="form-group">
+         <div class="control-label col-sm-2">
+            <%= f.label :description %>
+         </div>
+
+       <div class="col-sm-8">
+          <%= f.text_area :contenu, rows: 10, class: "form-control", placeholder: "Description" %>
+       </div>
+</div>
+
+<div class="form-group">
+
+<div class="row">
+
+<div class="col-sm-offset-2 col-sm-8">
+
+<%= f.collection_check_boxes :theme_ids, Theme.all, :id, :titre do |cb| %>
+
+<%= cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+
+<% end %>
+
+</div>
+
+</div>
+
+</div>
+ <div class="form-group">
+
+<div class="col-sm-offset-2 col-sm-10">
+<%= f.submit :Ouvrir_le_debat, class: 'btn btn-success btn-lg' %>
+</div>
+
+</div>
+
+<% end %>
+<div class="col-xs-4 col-xs-offset-4">
+
+[ <%= link_to "Annuler ", gbangbans_path %> ]
+
+</div>
+
+</div>
+
+</div>
